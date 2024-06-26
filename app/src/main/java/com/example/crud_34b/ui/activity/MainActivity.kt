@@ -62,7 +62,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+<<<<<<< HEAD
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.btnSensorList)) { v, insets ->
+=======
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

@@ -2,7 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< HEAD
     android:id="@+id/btnSensorList"
+=======
+    android:id="@+id/main"
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

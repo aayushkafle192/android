@@ -2,6 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+<<<<<<< HEAD
       <entry key="NotificationActivity">
         <State />
       </entry>
@@ -9,6 +10,9 @@
         <State />
       </entry>
       <entry key="app">
+=======
+      <entry key="DashBoardActivity">
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
         <State />
       </entry>
     </value>

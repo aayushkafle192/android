@@ -21,17 +21,29 @@ class ProductRepositoryImpl : ProductRepository {
     var storageRef : StorageReference = firebaseStorage.reference.child("products")
 
 
+<<<<<<< HEAD
     override fun uploadImage(imageName: String,imageUrl: Uri, callback: (Boolean, String?) -> Unit) {
 //        val imageName = UUID.randomUUID().toString()
+=======
+    override fun uploadImage(imageUrl: Uri, callback: (Boolean, String?, String?) -> Unit) {
+        val imageName = UUID.randomUUID().toString()
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
         var imageReference = storageRef.child(imageName)
         imageUrl?.let { url->
             imageReference.putFile(url).addOnSuccessListener {
                 imageReference.downloadUrl.addOnSuccessListener {downloadUrl->
                     var imagesUrl = downloadUrl.toString()
+<<<<<<< HEAD
                     callback(true,imagesUrl)
                 }
             }.addOnFailureListener {
                 callback(false,"")
+=======
+                    callback(true,imagesUrl,imageName)
+                }
+            }.addOnFailureListener {
+                callback(false,"","")
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
             }
         }
 
@@ -55,18 +67,35 @@ class ProductRepositoryImpl : ProductRepository {
     override fun getAllProduct(callback: (List<ProductModel>?, Boolean, String?) -> Unit) {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+<<<<<<< HEAD
                 var productList = mutableListOf<ProductModel>()
                 for(eachData in snapshot.children){
                     var product = eachData.getValue(ProductModel::class.java)
                     if(product!=null){
+=======
+                var productList= mutableListOf<ProductModel>()
+                Log.d("snapshot data ",snapshot.children.toString())
+                for(eachData in snapshot.children){
+                    var product = eachData.getValue(ProductModel::class.java)
+                    if(product!=null){
+
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
                         productList.add(product)
                     }
                 }
                 callback(productList,true,"Data successfully retrieved")
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
             }
 
             override fun onCancelled(error: DatabaseError) {
                 callback(null,false,"Unable to fetch ${error.message}")
+<<<<<<< HEAD
             }
         })
     }
@@ -104,5 +133,24 @@ class ProductRepositoryImpl : ProductRepository {
             }
         }
 
+=======
+
+            }
+        })
+
+
+    }
+
+    override fun updateProduct(id: String, callback: (Boolean, String?) -> Unit) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteData(id: String, callback: (Boolean, String?) -> Unit) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteImage(imageName: String, callback: (Boolean, String?) -> Unit) {
+        TODO("Not yet implemented")
+>>>>>>> c7b2af1f64667f384a96256baff3e32185861b66
     }
 }
